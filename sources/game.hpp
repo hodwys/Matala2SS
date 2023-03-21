@@ -1,8 +1,14 @@
 #ifndef GAME_HPP
 #define GAME_HPP
 
+#include "iostream"
+namespace ariel{}
+using namespace  ariel;
 #include <string>
 #include "player.hpp"
+using namespace std;
+
+
 
 class Game{
     private:

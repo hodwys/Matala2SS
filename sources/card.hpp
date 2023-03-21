@@ -2,6 +2,7 @@
 #define CARD_HPP
 # include <string>
 
+
 namespace ariel{
 
 };

@@ -3,6 +3,10 @@
 
 #include <string>
 
+using namespace std;
+#include "iostream"
+#include "stdio.h"
+
 
 class Player{
     
