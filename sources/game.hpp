@@ -16,7 +16,7 @@ class Game{
         Player p2;
 
     public:
-        
+        Game(){}
         Game(Player p, Player t);
 
         void playAll(); //playes the game untill the end

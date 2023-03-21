@@ -3,8 +3,5 @@
 # include <string>
 
 
-namespace ariel{
-
-};
 
 #endif

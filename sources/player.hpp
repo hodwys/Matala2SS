@@ -2,6 +2,7 @@
 #define PLAYER_HPP
 
 #include <string>
+#include <stdio.h>
 
 using namespace std;
 #include "iostream"
@@ -14,12 +15,10 @@ class Player{
         std::string nameP;
     
     public:
-
-            
+        Player(){}
         Player(std::string s);
 
         std::string getString();
-
 
         int stacksize(); //prints the amount of cards left. should be 21 but can be less if a draw was played
 
