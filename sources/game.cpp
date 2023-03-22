@@ -1,5 +1,6 @@
 #include "game.hpp"
 #include "player.hpp"
+#include <stdexept>
 # include <string>
 
 

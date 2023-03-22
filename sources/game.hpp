@@ -2,6 +2,7 @@
 #define GAME_HPP
 
 #include "iostream"
+#include <stdexept>
 namespace ariel{}
 using namespace  ariel;
 #include <string>

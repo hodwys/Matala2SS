@@ -1,13 +1,11 @@
 # include "player.hpp"
 # include <string>
+#include <stdexept>
+
 
 Player::Player(std::string s){
     nameP=s;
 }// constructor 
-
-std::string Player::getString(){
-    return nameP;
-}
 
 int Player::stacksize(){
     return 1;
