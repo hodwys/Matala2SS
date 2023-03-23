@@ -1,6 +1,6 @@
 #ifndef CARD_HPP
 #define CARD_HPP
-#include <stdexept>
+//#include <stdexept>
 
 # include <string>
 

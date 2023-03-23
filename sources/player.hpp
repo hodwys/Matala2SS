@@ -3,7 +3,7 @@
 
 #include <string>
 #include <stdio.h>
-#include <stdexept>
+#include <stdexcept>
 
 using namespace std;
 #include "iostream"

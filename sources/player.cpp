@@ -1,6 +1,6 @@
 # include "player.hpp"
 # include <string>
-#include <stdexept>
+#include <stdexcept>
 
 
 Player::Player(std::string s){
