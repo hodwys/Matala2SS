@@ -7,7 +7,7 @@
 
 using namespace std;
 #include "iostream"
-#include "stdio.h"
+//#include "stdio.h"
 
 
 class Player{
@@ -17,7 +17,7 @@ class Player{
     
     public:
         Player(){}
-        Player(std::string s);
+        Player(std::string name);
 
         std::string getString();
 

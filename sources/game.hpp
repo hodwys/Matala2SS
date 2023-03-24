@@ -18,7 +18,7 @@ class Game{
 
     public:
         Game(){}
-        Game(Player p, Player t);
+        Game(Player pluto, Player timor);
 
         void playAll(); //playes the game untill the end
         void printWiner(); // prints the name of the winning player

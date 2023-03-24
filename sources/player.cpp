@@ -3,8 +3,8 @@
 #include <stdexcept>
 
 
-Player::Player(std::string s){
-    nameP=s;
+Player::Player(std::string str){
+    nameP=str;
 }// constructor 
 
 int Player::stacksize(){

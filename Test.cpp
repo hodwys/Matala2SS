@@ -22,8 +22,6 @@ TEST_CASE("befor START GAME"){
 
 
 
-
-
 TEST_CASE("in the START GAME"){
 
 Player One("One"); //Creating player objects
@@ -35,10 +33,11 @@ bool con1_2 = con1 && con2;
 
 bool con3 = One.cardesTaken()==0;
 bool con4 = Two.cardesTaken()==0;
-bool con3_4 = con3 && con4;
+
 
 CHECK (con1_2);
-CHECK( con3_4);
+CHECK( con3);
+CHECK(con4);
 }
 
 
@@ -51,10 +50,9 @@ Game game(One, Two);
 game.playAll();
 bool con1 = One.stacksize() == 0;
 bool con2 =  Two.stacksize()==0;
-bool con1_2 = con1 && con2;
-CHECK(con1_2);
+CHECK(con1);
+CHECK(con2);
 CHECK_THROWS(game.playTurn());
-
 
 }
 
@@ -70,8 +68,11 @@ for (int i=0;i<5;i++) {
 
 bool con1 = (One.stacksize()<20);
 bool con2 = (Two.stacksize()<20);
-bool con1_2 = con1 && con2;
-CHECK(con1_2);
+bool con3 = (One.stacksize() == Two.stacksize());
+
+CHECK(con1);
+CHECK(con2);
+CHECK(con3);
 CHECK((One.stacksize() + One.cardesTaken() + Two.stacksize() + Two.cardesTaken() ==52));
 
 
@@ -86,21 +87,23 @@ Player Two("Two");
 Game game(One, Two);
 game.playTurn();
 
-     bool con1 = One.cardesTaken() > 0;
+if(One.stacksize() >0){
+    bool con1 = One.cardesTaken() > 0;
     bool con2 = Two.cardesTaken() == 0;
     bool con1_2 = con1 && con2;
+
     bool con3 = Two.cardesTaken() > 0;
     bool con4 = One.cardesTaken() == 0;
     bool con3_4 = con3 && con4;
-
+    
     CHECK(con1_2);
     CHECK(con3_4);
 }
+
 else{
     CHECK(Two.stacksize()==0);
 
 }
-
 }
 
 
@@ -113,10 +116,6 @@ TEST_CASE("Checking whether after a maximum of 26 turns the game is over"){
     Game game(One, Two);
 
     int count = 0;
-    // bool con1 = One.stacksize()>0;
-    // bool con2 = count < 27;
-    // bool con1_2 = con1 && con2;
-
     while (1){
 
         game.playTurn();
@@ -125,6 +124,11 @@ TEST_CASE("Checking whether after a maximum of 26 turns the game is over"){
             break;
         }
     }
+    bool con1 = One.cardesTaken()>0;
+    bool con2 = Two.cardesTaken()>0;
+
+    CHECK(con1);
+    CHECK(con2);
     CHECK(One.stacksize() == 0);
     CHECK(Two.stacksize() == 0);
     CHECK(count < 27);
