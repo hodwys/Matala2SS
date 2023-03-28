@@ -14,8 +14,14 @@ TEST_CASE("befor START GAME"){
     Player One("One"); //Creating player objects
     Player Two("Two");
 
-    CHECK(One.stacksize() == 0);
-    CHECK(Two.stacksize() == 0);
+    bool con1 =(One.stacksize() == 0);
+    bool con2 =(Two.stacksize() == 0);
+    bool con3 = One.stacksize() == Two.stacksize();
+    bool con1_3 = One.stacksize() == 0 &&  One.stacksize() == Two.stacksize();
+    bool con2_3 = Two.stacksize() == 0 &&  One.stacksize() == Two.stacksize();
+
+    CHECK(con2_3);
+    CHECK(con1_3);
     CHECK(One.cardesTaken() == 0);
     CHECK(Two.cardesTaken() == 0);
 }
@@ -34,7 +40,6 @@ bool con1_2 = con1 && con2;
 bool con3 = One.cardesTaken()==0;
 bool con4 = Two.cardesTaken()==0;
 
-
 CHECK (con1_2);
 CHECK( con3);
 CHECK(con4);
@@ -50,8 +55,11 @@ Game game(One, Two);
 game.playAll();
 bool con1 = One.stacksize() == 0;
 bool con2 =  Two.stacksize()==0;
+bool con3 = (One.cardesTaken() + Two.cardesTaken()==52);
+CHECK(con3);
 CHECK(con1);
 CHECK(con2);
+
 CHECK_THROWS(game.playTurn());
 
 }
@@ -69,7 +77,9 @@ for (int i=0;i<5;i++) {
 bool con1 = (One.stacksize()<20);
 bool con2 = (Two.stacksize()<20);
 bool con3 = (One.stacksize() == Two.stacksize());
+bool con4 = ((One.cardesTaken()>0 || Two.cardesTaken()>0));
 
+CHECK(con4);
 CHECK(con1);
 CHECK(con2);
 CHECK(con3);
@@ -101,7 +111,9 @@ if(One.stacksize() >0){
 }
 
 else{
+
     CHECK(Two.stacksize()==0);
+    CHECK(((One.cardesTaken()>0) || (Two.cardesTaken()>0)));
 
 }
 }
@@ -109,28 +121,20 @@ else{
 
 
 
-TEST_CASE("Checking whether after a maximum of 26 turns the game is over"){
+
+TEST_CASE("function are error"){
+    
 
     Player One("One"); //Creating player objects
     Player Two("Two");
     Game game(One, Two);
 
-    int count = 0;
-    while (1){
 
-        game.playTurn();
-        count++;
-        if (count ==26  || One.stacksize()==0){
-            break;
-        }
-    }
-    bool con1 = One.cardesTaken()>0;
-    bool con2 = Two.cardesTaken()>0;
 
-    CHECK(con1);
-    CHECK(con2);
-    CHECK(One.stacksize() == 0);
-    CHECK(Two.stacksize() == 0);
-    CHECK(count < 27);
-    
+    CHECK_NOTHROW(game.printLastTurn());
+    CHECK_NOTHROW(game.printStats());
+    CHECK_NOTHROW(game.playAll());
+    CHECK_NOTHROW(game.printLog());
+    CHECK_NOTHROW(game.printWiner());
+
 }
